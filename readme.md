@@ -11,7 +11,12 @@ var control = require('control-keyboard')
 control.press('A')
 
 //隔120ms输入A..B..C,然后按Ctrl+A，再按Ctrl+C，然后获取#abc
-control.press('ABC',120).combo('ctrl+A').combo('ctrl+C').get('#abc').focus().combo('ctrl+V')
+control.press('ABC',120)
+.combo('ctrl+A')
+.combo('ctrl+C')
+.get('#abc')
+.focus()
+.combo('ctrl+V')
 .then(function(next){
     var i = 0
     var self=this
@@ -22,7 +27,9 @@ control.press('ABC',120).combo('ctrl+A').combo('ctrl+C').get('#abc').focus().com
             next()
         }
     },1000)
-}).press(32).get('#send').click()
-
+})
+.press(32)
+.get('#send')
+.trigger('click')
 //press A
 ```
